@@ -13,13 +13,13 @@ const sqarlex7 = new Discord.Client();
 // Aktif edilecek token sayısına göre arttırabilirsiniz. Eğer yukarıyı arttırırsanız aynı şekilde aşşağıyıda arttırmanız gerekir.
 // Tokenleri tırnakların -> "" arasına yaz.
 
-sqarlex1.login("sqarlex token 1");
-sqarlex2.login("sqarlex token 2");
-sqarlex3.login("sqarlex token 3");
-sqarlex4.login("sqarlex token 4");
-sqarlex5.login("sqarlex token 5");
-sqarlex6.login("sqarlex token 6");
-sqarlex7.login("sqarlex token 7");
+sqarlex1.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
+sqarlex2.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
+sqarlex3.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
+sqarlex4.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
+sqarlex5.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
+sqarlex6.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
+sqarlex7.login("MTA5Mzk5NDM0ODA1MzU0NTAzMA");
 
 
 /* 
@@ -31,7 +31,7 @@ WATCHING = İZLİYOR
 STREAMING = YAYINDA*/
   
 sqarlex1.on('ready', ()=>{
-  sqarlex1.channels.get('ses kanal id').join()
+  sqarlex1.channels.get('1220904080139092018').join()
   console.log(`[Aktif] - ${sqarlex1.user.tag} 1 numaralı hesap aktif.`) 
   sqarlex1.user.setActivity('Spotify', {"type": "LISTENING"});
 });
