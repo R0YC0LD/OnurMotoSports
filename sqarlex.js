@@ -17,7 +17,7 @@ const token5 = "token5";
 const token6 = "token6";
 const token7 = "token7";
 
-const sesKanalID1 = "1220904080139092018";
+const sesKanalID1 = "480356816576970752";
 const sesKanalID2 = "ses_kanal_id2";
 const sesKanalID3 = "ses_kanal_id3";
 const sesKanalID4 = "ses_kanal_id4";
