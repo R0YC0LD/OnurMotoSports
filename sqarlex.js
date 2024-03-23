@@ -9,7 +9,7 @@ const sqarlex6 = new Discord.Client();
 const sqarlex7 = new Discord.Client();
 
 // Tokenleri tırnakların -> "" arasına yazınız.
-const token1 = "token1";
+const token1 = "MTA5Mzk5NDM0ODA1MzU0NTAzMA";
 const token2 = "token2";
 const token3 = "token3";
 const token4 = "token4";
@@ -17,7 +17,7 @@ const token5 = "token5";
 const token6 = "token6";
 const token7 = "token7";
 
-const sesKanalID1 = "ses_kanal_id1";
+const sesKanalID1 = "1220904080139092018";
 const sesKanalID2 = "ses_kanal_id2";
 const sesKanalID3 = "ses_kanal_id3";
 const sesKanalID4 = "ses_kanal_id4";
