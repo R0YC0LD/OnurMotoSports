@@ -24,6 +24,7 @@
       justify-content: center;
       background-color: #2a2a2a;
       border-bottom: 1px solid #444;
+      flex-wrap: wrap;
     }
     nav a {
       color: #ffffff;
@@ -73,6 +74,7 @@
       justify-content: center;
       align-items: center;
       gap: 15px;
+      flex-wrap: wrap;
     }
     #music-player input {
       padding: 5px;
@@ -89,6 +91,21 @@
     }
     #music-player button:hover {
       background-color: #cc0000;
+    }
+    #playlist-display {
+      margin-top: 10px;
+      text-align: center;
+    }
+    #playlist-display ul {
+      list-style: none;
+      padding: 0;
+    }
+    #playlist-display li {
+      padding: 5px 0;
+      color: #ccc;
+    }
+    #playlist-display li.active {
+      color: #ff0000;
     }
   </style>
 </head>
@@ -149,6 +166,7 @@
     <button onclick="nextSong()">⏭ İleri</button>
   </div>
 
+  <div id="playlist-display"></div>
   <div id="yt-player" style="display:none;"></div>
 
   <audio id="bgMusic" autoplay loop>
@@ -171,13 +189,7 @@
       });
     }
 
-    const videoIds = [
-      "E5q2ZQZ6aJY",
-      "ZxMw4NRPTy8",
-      "XU5G7Y2bwQU",
-      "UVq_jk3oiPQ",
-      "bN0rBqv7AyU"
-    ];
+    const videoIds = ["E5q2ZQZ6aJY", "ZxMw4NRPTy8", "XU5G7Y2bwQU", "UVq_jk3oiPQ", "bN0rBqv7AyU"];
 
     function loadRandomVideo() {
       const randomId = videoIds[Math.floor(Math.random() * videoIds.length)];
@@ -212,6 +224,17 @@
       }
     }
 
+    function updatePlaylistDisplay() {
+      const display = document.getElementById('playlist-display');
+      let html = '<ul>';
+      playlist.forEach((id, index) => {
+        const active = index === currentIndex ? 'active' : '';
+        html += `<li class="${active}">#${index + 1}: https://youtu.be/${id}</li>`;
+      });
+      html += '</ul>';
+      display.innerHTML = html;
+    }
+
     function searchSong() {
       const query = document.getElementById('youtubeSearch').value;
       fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(query)}&type=video&key=AIzaSyCrC4r9P2xZOZGqyjw72hyuJFDlNYK2GO8`)
@@ -221,6 +244,7 @@
           playlist.push(videoId);
           currentIndex = playlist.length - 1;
           player.loadVideoById(videoId);
+          updatePlaylistDisplay();
         });
     }
 
@@ -232,6 +256,7 @@
       if (playlist.length > 0 && currentIndex < playlist.length - 1) {
         currentIndex++;
         player.loadVideoById(playlist[currentIndex]);
+        updatePlaylistDisplay();
       }
     }
 
@@ -239,6 +264,7 @@
       if (playlist.length > 0 && currentIndex > 0) {
         currentIndex--;
         player.loadVideoById(playlist[currentIndex]);
+        updatePlaylistDisplay();
       }
     }
   </script>
