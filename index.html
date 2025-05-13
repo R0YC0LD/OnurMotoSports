@@ -1,449 +1,112 @@
-
-<html>
-
+<!DOCTYPE html>
+<html lang="tr">
 <head>
-<meta http-equiv="Content-Language" content="tr">
-<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
-<meta name="ProgId" content="FrontPage.Editor.Document">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-1254">
-<title>WwW.US-CimBom.TR.cX</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Motor Tutkusu</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background: #0f0f0f;
+      color: #ffffff;
+    }
+    header {
+      background-color: #1f1f1f;
+      padding: 20px;
+      text-align: center;
+      font-size: 2rem;
+      border-bottom: 2px solid #ff0000;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2a2a2a;
+      border-bottom: 1px solid #444;
+    }
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      padding: 15px 25px;
+      transition: background 0.3s;
+    }
+    nav a:hover {
+      background-color: #ff0000;
+    }
+    section {
+      display: none;
+      padding: 40px;
+    }
+    section.active {
+      display: block;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1f1f1f;
+      border-top: 2px solid #ff0000;
+    }
+  </style>
 </head>
-
-<body bgcolor="#000000">
-
-<script language="JavaScript">if (document.all){
-
-Cols=6;
-
-Cl=48;//Space's are included so real length is 48!
-
-Cs=150;
-
-Ts=13;
-
-Tc='#008800';
-
-Tc1='#00ff00';
-
-MnS=20;
-
-MxS=30;
-
-I=Cs;
-
-Sp=new Array();S=new Array();Y=new Array();
-
-C=new Array();M=new Array();B=new Array();
-
-RC=new Array();E=new Array();Tcc=new Array(0,1);
-
-document.write("<div id='Container' style='position:absolute;top:0;left:-"+Cs+"'>");
-
-document.write("<div style='position:relative'>");
-
-for(i=0; i < Cols; i++){
-
-S=I+=Cs;
-
-document.write("<div id='A' style='position:absolute;top:0;font-family:Arial;font-size:"
-
-+Ts+"px;left:"+S+";width:"+Ts+"px;height:0px;color:"+Tc+";visibility:hidden'></div>");
-
-}
-
-document.write("</div></div>");
-
-for(j=0; j < Cols; j++){
-
-RC[j]=1+Math.round(Math.random()*Cl);
-
-Y[j]=0;
-
-Sp[j]=Math.round(MnS+Math.random()*MxS);
-
-for(i=0; i < RC[j]; i++){
-
-B='';
-
-C=Math.round(Math.random()*1)+' ';
-
-M[j]=B[0]+=C;
-
-}
-
-}
-
-function Cycle(){
-
-Container.style.top=window.document.body.scrollTop;
-
-for (i=0; i < Cols; i++){
-
-var r = Math.floor(Math.random()*Tcc.length);
-
-E = '<font color='+Tc1+'>'+Tcc[r]+'</font>';
-
-Y+=Sp;
-
-if (Y > window.document.body.clientHeight){
-
-for(i2=0; i2 < Cols; i2++){
-
-RC[i2]=1+Math.round(Math.random()*Cl);
-
-for(i3=0; i3 < RC[i2]; i3++){
-
-B[i3]='';
-
-C[i3]=Math.round(Math.random()*1)+' ';
-
-C[Math.floor(Math.random()*i2)]=' '+' ';
-
-M=B[0]+=C[i3];
-
-Y=-Ts*M.length/1.5;
-
-A.style.visibility='visible';
-
-}
-
-Sp=Math.round(MnS+Math.random()*MxS);
-
-}
-
-}
-
-A.style.top=Y;
-
-A.innerHTML=M+' '+E+' ';
-
-}
-
-setTimeout('Cycle()',20)
-
-}
-
-Cycle();
-
-}</script>
-<p><font color="#FFFFFF" face="Comic Sans MS" size="7">                 
-<a style="text-decoration: none" href="http://pckopat77.phpbb3.net/">
-<font color="#FFFFFF">Forumlara Giriş</font> </a> </font>
-<embed src=http://www.smtech.co.za/intro.mp3 </body width="1" height="1"><noembed>şarkı İçin Biras Bekleyin</noembed></p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<p> </p>
-
-
-<!-- START OF SCRIPT -->
-<!-- For more scripts visithttp://www.erenet.net -->
-<SCRIPT LANGUAGE="JavaScript">
-
-<!--
-
-// Copyright (c) 1996-1997 Tomer Shiran. All rights reserved.
-// Permission given to use the script provided that this notice remains as is.
-// Additional scripts can be found athttp://www.erenet.net
-
-// set speed of banner (pause in milliseconds between characters)
-var speed = 100 // decrease value to increase speed (must be positive)
-
-// set pause between completion of message and beginning of following message
-var pause = 1000 // increase value to increase pause
-
-// set initial values
-var timerID = null
-var bannerRunning = false
-
-// create global array
-var ar = new Array()
-
-// assign the strings to the array's elements
-ar[0] = "WwW.US-CimBom.TR.cX"
-ar[1] = "WwW.US-CimBom.TR.cX"
-ar[2] = "WwW.US-CimBom.TR.cX"
-ar[3] = "Web Master By PckopAt"
-
-// set index of first message to be displayed first
-var currentMessage = 0
-
-// set index of last character to be displayed first
-var offset = 0
-
-// stop the banner if it is currently running
-function stopBanner() {
-// if banner is currently running
-if (bannerRunning)
-// stop the banner
-clearTimeout(timerID)
-
-// timer is now stopped
-bannerRunning = false
-}
-
-// start the banner
-function startBanner() {
-// make sure the banner is stopped
-stopBanner()
-
-// start the banner from the current position
-showBanner()
-}
-
-// type-in the current message
-function showBanner() {
-// assign current message to variable
-var text = ar[currentMessage]
-
-// if current message has not finished being displayed
-if (offset < text.length) {
-// if last character of current message is a space
-if (text.charAt(offset) == " ")
-// skip the current character
-offset++
-
-// assign the up-to-date to-be-displayed substring
-// second argument of method accepts index of last character plus one
-var partialMessage = text.substring(0, offset + 1)
-
-// display partial message in status bar
-window.status = partialMessage
-
-// increment index of last character to be displayed
-offset++ // IE sometimes has trouble with "++offset"
-
-// recursive call after specified time
-timerID = setTimeout("showBanner()", speed)
-
-// banner is running
-bannerRunning = true
-} else {
-// reset offset
-offset = 0
-
-// increment subscript (index) of current message
-currentMessage++
-
-// if subscript of current message is out of range
-if (currentMessage == ar.length)
-// wrap around (start from beginning)
-currentMessage = 0
-
-// recursive call after specified time
-timerID = setTimeout("showBanner()", pause)
-
-// banner is running
-bannerRunning = true
-}
-}
-
-// -->
-
-</SCRIPT>
-</HEAD>
-<BODY onLoad="startBanner()">
-</BODY>
-</HTML>
-<!-- END OF SCRIPT -->
+<body onload="playMusic();">
+
+  <header>Motor Tutkusu</header>
+
+  <nav>
+    <a href="#" onclick="showTab('hakkimizda')">Hakkımızda</a>
+    <a href="#" onclick="showTab('galeri')">Galeri</a>
+    <a href="#" onclick="showTab('modeller')">Modeller</a>
+    <a href="#" onclick="showTab('iletisim')">İletişim</a>
+  </nav>
+
+  <section id="hakkimizda" class="active">
+    <h2>Motor Tutkusuna Hoşgeldiniz</h2>
+    <p>Adrenalin, hız ve özgürlük... Bu site motor severler için özel olarak hazırlanmıştır.</p>
+  </section>
+
+  <section id="galeri">
+    <h2>Galeri</h2>
+    <p>En sevilen motor fotoğraflarını burada bulabilirsiniz. (İçerik eklenebilir)</p>
+  </section>
+
+  <section id="modeller">
+    <h2>Popüler Modeller</h2>
+    <ul>
+      <li>Yamaha R6</li>
+      <li>Honda CBR 600RR</li>
+      <li>Kawasaki Ninja ZX-6R</li>
+      <li>Harley Davidson Street Bob</li>
+    </ul>
+  </section>
+
+  <section id="iletisim">
+    <h2>İletişim</h2>
+    <p>Bize ulaşmak için: motortutkusu@example.com</p>
+  </section>
+
+  <footer>
+    &copy; 2025 Motor Tutkusu - Tüm hakları saklıdır.
+  </footer>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="motor_intro.mp3" type="audio/mpeg">
+    Tarayıcınız ses öğesini desteklemiyor.
+  </audio>
+
+  <script>
+    function showTab(tabId) {
+      const tabs = document.querySelectorAll('section');
+      tabs.forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+    }
+
+    function playMusic() {
+      const music = document.getElementById('bgMusic');
+      music.play().catch(() => {
+        alert("Lütfen müziği başlatmak için sayfaya tıklayın.");
+      });
+    }
+  </script>
 </body>
-<SCRIPT LANGUAGE="JavaScript">
-
-<!--
-
-function GetCookie(name) {
-
-var arg=name+"=";
-
-var alen=arg.length;
-
-var clen=document.cookie.length;
-
-var i=0;
-
-while (i<clen) {
-
-var j=i+alen;
-
-if
-
-(document.cookie.substring(i,j)==arg)
-
-return "here";
-
-i=document.cookie.indexOf(" ",i)+1;
-
-if (i==0) break;
-
-}
-
-return null;
-
-}
-
-var visit=GetCookie("shant");
-
-if (visit==null){
-
-alert("WwW.US-CimBom.Tr.cX Pls Wait To Listen To Music :)");
-
-var expire=new Date();
-
-expire=new
-
-Date(expire.getTime()+7776000000);
-
-document.cookie="shant=here; expires="+expire;
-
-}
-
-// -->
-
-</SCRIPT>
- <p> </p>
-
-<script>
-
-
-
-var mydate=new Date()
-
-var year=mydate.getYear()
-
-if (year < 1000)
-
-year+=1900
-
-var day=mydate.getDay()
-
-var month=mydate.getMonth()
-
-var daym=mydate.getDate()
-
-if (daym<10)
-
-daym="0"+daym
-
-var dayarray=new Array("Pazar","Pazartesi","Salı","Çarşamba","Perşembe","Cuma","Cumartesi")
-
-var montharray=new Array("Ocak","Şubat","Mart","Nisan","Mayıs","Haziran","Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık")
-
-
-
-myhours = mydate.getHours();
-
-if (myhours >= 12) {
-
-myhours = (myhours == 12) ? 12 : myhours - 12; mm = " Akşam";
-
-}
-
-else {
-
-myhours = (myhours == 0) ? 12 : myhours; mm = " Sabah";
-
-}
-
-
-
-myminutes = mydate.getMinutes();
-
-if (myminutes < 10){
-
-mytime = ":0" + myminutes;
-
-}
-
-else {
-
-mytime = ":" + myminutes;
-
-};
-
-
-
-document.write("<font color='black' face='Arial' size=2><b>" + myhours + mytime + mm + ", " + dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"</b></font>")
-
-
-
-</script>
-<SCRIPT LANGUAGE="JavaScript">
-
-<!--
-
-function GetCookie(name) {
-
-var arg=name+"=";
-
-var alen=arg.length;
-
-var clen=document.cookie.length;
-
-var i=0;
-
-while (i<clen) {
-
-var j=i+alen;
-
-if
-
-(document.cookie.substring(i,j)==arg)
-
-return "here";
-
-i=document.cookie.indexOf(" ",i)+1;
-
-if (i==0) break;
-
-}
-
-return null;
-
-}
-
-var visit=GetCookie("shant");
-
-if (visit==null){
-
-alert("WwW.US-CimBom.TR.cX Pls Wait To Listen To Music :)");
-
-var expire=new Date();
-
-expire=new
-
-Date(expire.getTime()+7776000000);
-
-document.cookie="shant=here; expires="+expire;
-
-}
-
-// -->
-
-</SCRIPT>
-
-
-
- </html>
+</html>
