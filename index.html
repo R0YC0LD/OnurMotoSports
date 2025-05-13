@@ -41,11 +41,54 @@
     section.active {
       display: block;
     }
+    .video-box {
+      background: #1a1a1a;
+      border: 2px dashed #ff0000;
+      padding: 20px;
+      margin-top: 20px;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .video-box:hover {
+      background: #2f2f2f;
+    }
+    iframe {
+      width: 100%;
+      height: 400px;
+      margin-top: 20px;
+      border: none;
+    }
     footer {
       text-align: center;
       padding: 20px;
       background-color: #1f1f1f;
       border-top: 2px solid #ff0000;
+    }
+    #music-player {
+      background: #1f1f1f;
+      border-top: 2px solid #ff0000;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+    #music-player input {
+      padding: 5px;
+      width: 200px;
+    }
+    #music-player button {
+      background-color: #ff0000;
+      border: none;
+      color: white;
+      padding: 10px 15px;
+      font-family: 'Orbitron', sans-serif;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    #music-player button:hover {
+      background-color: #cc0000;
     }
   </style>
 </head>
@@ -57,6 +100,7 @@
     <a href="#" onclick="showTab('hakkimizda')">Hakkımızda</a>
     <a href="#" onclick="showTab('galeri')">Galeri</a>
     <a href="#" onclick="showTab('modeller')">Modeller</a>
+    <a href="#" onclick="showTab('videolar')">Videolar</a>
     <a href="#" onclick="showTab('iletisim')">İletişim</a>
   </nav>
 
@@ -80,6 +124,14 @@
     </ul>
   </section>
 
+  <section id="videolar">
+    <h2>Rastgele Motor Videoları</h2>
+    <div class="video-box" onclick="loadRandomVideo()">
+      Buraya tıklayarak rastgele bir motor videosu izleyin!
+    </div>
+    <div id="video-container"></div>
+  </section>
+
   <section id="iletisim">
     <h2>İletişim</h2>
     <p>Bize ulaşmak için: motortutkusu@example.com</p>
@@ -89,11 +141,22 @@
     &copy; 2025 Motor Tutkusu - Tüm hakları saklıdır.
   </footer>
 
+  <div id="music-player">
+    <input type="text" id="youtubeSearch" placeholder="Şarkı ara...">
+    <button onclick="searchSong()">Ara</button>
+    <button onclick="prevSong()">⏮ Geri</button>
+    <button onclick="pauseSong()">⏸ Durdur</button>
+    <button onclick="nextSong()">⏭ İleri</button>
+  </div>
+
+  <div id="yt-player" style="display:none;"></div>
+
   <audio id="bgMusic" autoplay loop>
     <source src="motor_intro.mp3" type="audio/mpeg">
     Tarayıcınız ses öğesini desteklemiyor.
   </audio>
 
+  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
     function showTab(tabId) {
       const tabs = document.querySelectorAll('section');
@@ -106,6 +169,77 @@
       music.play().catch(() => {
         alert("Lütfen müziği başlatmak için sayfaya tıklayın.");
       });
+    }
+
+    const videoIds = [
+      "E5q2ZQZ6aJY",
+      "ZxMw4NRPTy8",
+      "XU5G7Y2bwQU",
+      "UVq_jk3oiPQ",
+      "bN0rBqv7AyU"
+    ];
+
+    function loadRandomVideo() {
+      const randomId = videoIds[Math.floor(Math.random() * videoIds.length)];
+      document.getElementById('video-container').innerHTML = `
+        <iframe src="https://www.youtube.com/embed/${randomId}" allowfullscreen></iframe>
+      `;
+    }
+
+    let player;
+    let currentIndex = 0;
+    const playlist = [];
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('yt-player', {
+        height: '0', width: '0', videoId: '',
+        events: {
+          'onReady': onPlayerReady,
+          'onStateChange': onPlayerStateChange
+        }
+      });
+    }
+
+    function onPlayerReady(event) {
+      if (playlist.length > 0) {
+        player.loadVideoById(playlist[currentIndex]);
+      }
+    }
+
+    function onPlayerStateChange(event) {
+      if (event.data === YT.PlayerState.ENDED) {
+        nextSong();
+      }
+    }
+
+    function searchSong() {
+      const query = document.getElementById('youtubeSearch').value;
+      fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${encodeURIComponent(query)}&type=video&key=YOUR_API_KEY`)
+        .then(res => res.json())
+        .then(data => {
+          const videoId = data.items[0].id.videoId;
+          playlist.push(videoId);
+          currentIndex = playlist.length - 1;
+          player.loadVideoById(videoId);
+        });
+    }
+
+    function pauseSong() {
+      if (player) player.pauseVideo();
+    }
+
+    function nextSong() {
+      if (playlist.length > 0 && currentIndex < playlist.length - 1) {
+        currentIndex++;
+        player.loadVideoById(playlist[currentIndex]);
+      }
+    }
+
+    function prevSong() {
+      if (playlist.length > 0 && currentIndex > 0) {
+        currentIndex--;
+        player.loadVideoById(playlist[currentIndex]);
+      }
     }
   </script>
 </body>
