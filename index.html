@@ -24,7 +24,6 @@
       justify-content: center;
       background-color: #2a2a2a;
       border-bottom: 1px solid #444;
-      flex-wrap: wrap;
     }
     nav a {
       color: #ffffff;
@@ -249,7 +248,11 @@
     }
 
     function pauseSong() {
-      if (player) player.pauseVideo();
+      if (player && typeof player.pauseVideo === 'function') {
+        player.pauseVideo();
+      } else {
+        console.error("Player not ready or pauseVideo function not available.");
+      }
     }
 
     function nextSong() {
